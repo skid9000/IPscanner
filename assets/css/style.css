@@ -25,7 +25,7 @@ a {
 
 @font-face {
   font-family: 'BenderBold';
-  src: url('/Bender-Bold.otf'); /* IE9 Compat Modes */
+  src: url('../fonts/Bender-Bold.otf'); /* IE9 Compat Modes */
 }
 /* Default style - ENDS */
 
