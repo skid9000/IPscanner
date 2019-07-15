@@ -1,7 +1,7 @@
 (function () {
 	
 	/** GLOBAL VARIABLES - STARTS */
-	
+
 	/* globals snazzyMapStyle */
 	/* globals ClipboardJS */
 	
@@ -80,7 +80,7 @@
 	}
 	
 	const initializeMap = (Latitude, Longitude) => {
-		var mymap = L.map('mapid').setView([Latitude, Longitude], 13);
+		var mymap = L.map('map').setView([Latitude, Longitude], 13);
 	}
 	
 	const displayPlusymbols = () => {
