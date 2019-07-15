@@ -2,7 +2,6 @@
 	
 	/** GLOBAL VARIABLES - STARTS */
 
-	/* globals snazzyMapStyle */
 	/* globals ClipboardJS */
 	
 	// Move these to .env files before production
@@ -159,11 +158,8 @@
 			displayIP(ip);
 			
 			initializeMap(
-				"map",
 				parseFloat(lat),
 				parseFloat(long),
-				city,
-				country
 			);
 		}
 		// UI error handler
@@ -193,22 +189,8 @@
 	}
 	
 	const revealMap = (city, country) => {
-		if(country !== "South Korea") //  Snazzy map doensn't work for South Korea
-		{
-			displayPlusymbols();
-			let delay = 0.5;
-			for(let i=0;i<gridCellCount;i++)
-			{
-				gridCells[i].style.animation = "black2Transparent";
-				gridCells[i].style.animationDuration = "100ms";
-				gridCells[i].style.animationFillMode = "forwards";
-				gridCells[i].style.animationDelay = (initialMapRevealDelay + random(0,dominoAnimationRandomness) + (domionesFallRate * delay)) + "ms";
-				delay += gridDominoesAnimDelay;
-			}
-		}
 		// showLocation
 		displayLocation(city, country);
-			
 	}
 	
 	const flashIpAddress = () => {
