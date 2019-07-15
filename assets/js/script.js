@@ -1,8 +1,7 @@
 (function () {
 	
 	/** GLOBAL VARIABLES - STARTS */
-
-	/* globals google */
+	
 	/* globals snazzyMapStyle */
 	/* globals ClipboardJS */
 	
@@ -80,27 +79,8 @@
 			// console.log(`Client Hieght: ${clientHeight}`);
 	}
 	
-	// Render Google map on given DOM element
-	const initializeMap = (mapDomElementID, Latitude, Longitude, city, country) => {
-	// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-		const defaultZoomLevel = 14, indiaMapZoomLevel = 12;
-		const mapOptions = {
-			zoom: country == "India" ? indiaMapZoomLevel : defaultZoomLevel,
-			center: new google.maps.LatLng(Latitude, Longitude),
-			styles: snazzyMapStyle,
-			disableDefaultUI: true,
-			disableDoubleClickZoom: true,
-			draggable: false,
-			draggableCursor: false,
-			draggingCursor: false,
-			clickableIcons: false,
-		};
-		const map = new google.maps.Map(eleID(mapDomElementID), mapOptions);
-		eleID(mapDomElementID).removeAttribute('tabindex');
-		google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
-			//console.log('Map loaded, now reveal map');
-			revealMap(city, country);
-		});
+	const initializeMap = (Latitude, Longitude) => {
+		var mymap = L.map('mapid').setView([Latitude, Longitude], 13);
 	}
 	
 	const displayPlusymbols = () => {
@@ -178,7 +158,6 @@
 			// show IP
 			displayIP(ip);
 			
-			// Render Google map's location based on the API response 
 			initializeMap(
 				"map",
 				parseFloat(lat),
